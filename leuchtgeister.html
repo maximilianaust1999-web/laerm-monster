@@ -1352,19 +1352,27 @@ function ebene(sel, an) { $(sel).classList.toggle(&#x27;zeigen&#x27;, an); }
 let toastT = null;
 function toast(t) { const el = $(&#x27;#toast&#x27;); el.textContent = t; el.classList.add(&#x27;zeigen&#x27;); clearTimeout(toastT); toastT = setTimeout(() =&gt; el.classList.remove(&#x27;zeigen&#x27;), 2600); }
 function kalibrieren() {
-  // 09.10.2026: zwei Schritte. 1) Ruhe messen, 2) „so soll es nicht sein“ messen. Die Grenze liegt je Modus in dieser Spanne.
+  // 23.10.2026: Zeit nach der Uhr statt nach Zählern (lief doppelt so schnell), nie zwei Läufe gleichzeitig,
+  // und kein „kalibriert“, wenn kein Ton ankam (Stille) oder zu wenig gemessen wurde.
   if (!micAn &amp;&amp; !S.test) { toast(&#x27;Erst Mikrofon starten&#x27;); return; }
+  if (kalLauf) return; kalLauf = true;
   const h2 = $(&#x27;#kalEb&#x27;).querySelector(&#x27;h2&#x27;), p = $(&#x27;#kalEb&#x27;).querySelector(&#x27;p&#x27;);
-  const schritt = (titel, text, fertig) =&gt; { kal = {werte: [], n: 5}; h2.textContent = titel; p.textContent = text; $(&#x27;#kalZahl&#x27;).textContent = &#x27;5&#x27;; ebene(&#x27;#kalEb&#x27;, true);
-    const iv = setInterval(() =&gt; { kal.n--; $(&#x27;#kalZahl&#x27;).textContent = Math.max(kal.n, 0);
-      if (kal.n &lt;= 0) { clearInterval(iv); const w = kal.werte.slice(8).sort((x, y) =&gt; x - y); kal = null; fertig(w); } }, 1000); };
-  const q = (w, a, d) =&gt; w.length ? w[Math.min(w.length - 1, Math.floor(w.length * a))] : d;
+  const abbruch = (titel, text) =&gt; { kal = null; kalLauf = false; h2.textContent = titel; $(&#x27;#kalZahl&#x27;).textContent = &#x27;✗&#x27;; p.textContent = text; setTimeout(() =&gt; ebene(&#x27;#kalEb&#x27;, false), 5000); };
+  const schritt = (titel, text, fertig) =&gt; { kal = {werte: []}; const ende = Date.now() + 5000; h2.textContent = titel; p.textContent = text; $(&#x27;#kalZahl&#x27;).textContent = &#x27;5&#x27;; ebene(&#x27;#kalEb&#x27;, true);
+    const iv = setInterval(() =&gt; { const rest = Math.ceil((ende - Date.now()) / 1000); $(&#x27;#kalZahl&#x27;).textContent = Math.max(rest, 0);
+      if (Date.now() &gt;= ende) { clearInterval(iv); const alle = kal ? kal.werte : []; kal = null; fertig(alle.slice(Math.floor(alle.length * .15)).sort((x, y) =&gt; x - y)); } }, 200); };
+  const q = (w, a) =&gt; w[Math.min(w.length - 1, Math.floor(w.length * a))];
+  const zuWenig = w =&gt; w.length &lt; 20;
+  const still = w =&gt; !S.test &amp;&amp; w.length &amp;&amp; w[w.length - 1] &lt; -85;
   schritt(&#x27;1. Ruhe bitte&#x27;, &#x27;Alle ganz still. Ich messe, wie leise der Raum ist.&#x27;, w1 =&gt; {
-    S.basis = Math.round(Math.max(-85, Math.min(-20, q(w1, .3, S.basis))) * 10) / 10;
+    if (zuWenig(w1)) { abbruch(&#x27;Messung zu kurz&#x27;, &#x27;Der Browser hat zu wenig gemessen. Seite offen lassen und nochmal kalibrieren.&#x27;); return; }
+    if (still(w1)) { abbruch(&#x27;Kein Ton am Mikrofon&#x27;, &#x27;Es kommt nichts an. Richtiges Mikrofon gewählt? Stummschaltung aus? Dann nochmal kalibrieren.&#x27;); return; }
+    S.basis = Math.round(Math.max(-85, Math.min(-20, q(w1, .3))) * 10) / 10;
     schritt(&#x27;2. Jetzt laut!&#x27;, &#x27;Alle reden durcheinander, so wie es NICHT sein soll.&#x27;, w2 =&gt; {
-      const laut = q(w2, .5, null);
-      S.laut = laut !== null &amp;&amp; laut - S.basis &gt;= 4 ? Math.round(laut * 10) / 10 : null;
-      S.kalibriert = true; S.fein = 0; speichern(); fein(0); druck = 0; ruhe = 0; eMit = Math.pow(10, S.basis / 10);
+      if (zuWenig(w2)) { abbruch(&#x27;Messung zu kurz&#x27;, &#x27;Der Browser hat zu wenig gemessen. Seite offen lassen und nochmal kalibrieren.&#x27;); return; }
+      const laut = q(w2, .5);
+      S.laut = laut - S.basis &gt;= 4 ? Math.round(laut * 10) / 10 : null;
+      S.kalibriert = true; S.fein = 0; speichern(); fein(0); druck = 0; ruhe = 0; eMit = Math.pow(10, S.basis / 10); kalLauf = false;
       h2.textContent = &#x27;Fertig&#x27;; $(&#x27;#kalZahl&#x27;).textContent = &#x27;✓&#x27;;
       p.textContent = S.laut === null ? &#x27;Kaum Unterschied gemessen. Mikrofon näher an die Klasse und nochmal kalibrieren.&#x27; : &#x27;Gespeichert. Die Grenze liegt jetzt zwischen leise und laut.&#x27;;
       setTimeout(() =&gt; ebene(&#x27;#kalEb&#x27;, false), 2200); einMic(); meter(); });

@@ -81,7 +81,7 @@ button{font-family:'Onest',Arial,sans-serif;color:var(--tinte);cursor:pointer}
 /* Schatz */
 #schatz{left:1240px;top:514px;width:640px;height:352px;padding:20px 30px}
 #nullBtn{position:absolute;right:26px;top:16px;height:52px;padding:4px 20px 0;border:3px solid var(--tinte);border-radius:12px;background:#fff;color:var(--tinte);font:400 26px 'Lilita One',sans-serif;cursor:pointer;z-index:2}
-#nullBtn.sicher{background:#D9361E;border-color:#D9361E;color:#fff}
+#lautNeu.sicher,#nullBtn.sicher{background:#D9361E;border-color:#D9361E;color:#fff}
 #schatzOben{display:flex;gap:22px;align-items:center;margin-top:4px}
 #truhe{width:190px;height:140px;flex:none;cursor:pointer}
 #schatzRechts{flex:1;min-width:0}
@@ -147,7 +147,7 @@ button{font-family:'Onest',Arial,sans-serif;color:var(--tinte);cursor:pointer}
 .gross{height:120px;padding:0 60px;border:5px solid var(--tinte);border-radius:16px;background:var(--lagune);font-size:44px;font-weight:800}
 .gross.zweit{background:#fff;height:90px;font-size:30px}
 #startFehler{color:#B3261E;font-weight:700;font-size:28px!important;white-space:pre-line}
-#micWahl{font-size:28px;padding:10px 16px;border:4px solid var(--tinte);border-radius:12px;max-width:1200px}
+#micWahl,.micX{font-size:28px;padding:10px 16px;border:4px solid var(--tinte);border-radius:12px;max-width:1200px}
 #stoppEb{inset:0;background:var(--koralle);align-items:center;justify-content:center;flex-direction:column;z-index:30}
 #stoppEb svg{width:330px;height:330px}
 #stoppEb .T{font-size:260px;line-height:.85;color:#fff;-webkit-text-stroke:16px var(--tinte);paint-order:stroke fill}
@@ -227,6 +227,43 @@ html.ampel #miniSchatz{display:flex;align-items:center;gap:10px;background:#fff;
 #mpName{font-size:36px;font-weight:800;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #mpRest{font-size:50px}
 #mpWeiter{height:58px;border:4px solid var(--tinte);border-radius:12px;background:var(--butter);font-size:26px;font-weight:800;padding:0 20px}
+
+/* Wer war laut? (19.10.2026, Maxi): Konsequenz-Treppe je Sitzplatz (Tisch + Platz, keine Namen) */
+.kn.laut{background:#F5D9CF;flex:1.1}
+#verwarnt{position:absolute;left:520px;top:140px;width:672px;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:10px;z-index:5;pointer-events:none}
+html.ampel #verwarnt{left:1190px}
+.vw{display:flex;align-items:center;gap:8px;background:#fff;border:3px solid var(--tinte);border-radius:12px;padding:5px 12px;font-size:26px;font-weight:800}
+.vw i{width:18px;height:18px;border-radius:50%;display:block;border:2px solid var(--tinte)}
+.vw b{font-family:'Lilita One';font-weight:400;font-size:30px;color:#B3261E}
+#lautEb{inset:0;background:rgba(15,43,40,.6);align-items:center;justify-content:center;z-index:35}
+#lautKarte{width:1820px;height:1020px;background:#fff;border:5px solid var(--tinte);border-radius:18px;padding:26px 34px;display:flex;gap:30px;position:relative}
+#lautLinks{flex:1;min-width:0;display:flex;flex-direction:column}
+#lautLinks h2{font-size:72px;margin:0;line-height:1}
+#lautLinks .klein2{font-size:24px;margin:4px 0 14px}
+#tische{flex:1;min-height:0;display:grid;gap:14px;align-content:start}
+.tisch{border:4px solid var(--tinte);border-radius:14px;padding:8px 10px 10px;background:#F7F3EC}
+.tisch .tn{font-size:24px;font-weight:800;margin:0 0 6px 4px}
+.tisch .pl{display:flex;gap:8px}
+.platz{flex:1;height:96px;border:4px solid var(--tinte);border-radius:12px;background:#fff;font-family:'Lilita One';font-size:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;position:relative}
+.platz small{font-family:'Onest';font-size:16px;font-weight:800;margin-top:4px}
+.platz.st1{background:#F6D86B}.platz.st2{background:#F59E42}.platz.st3{background:#E2553F;color:#fff}.platz.st4{background:#7A1E14;color:#fff}
+#sitzStell{display:flex;gap:12px;align-items:center;font-size:24px;font-weight:700;margin-top:12px}
+#sitzStell button,#lautRechts .kn2{height:60px;min-width:60px;border:4px solid var(--tinte);border-radius:12px;background:#fff;font-size:26px;font-weight:800;padding:0 16px}
+#sitzStell b{font-family:'Lilita One';font-weight:400;font-size:36px;min-width:44px;text-align:center}
+#lautRechts{width:560px;display:flex;flex-direction:column;gap:10px}
+#lautRechts h3{font-size:30px;margin:0}
+.stufe{display:flex;gap:12px;align-items:center;border:3px solid var(--tinte);border-radius:12px;padding:6px 10px}
+.stufe .nr{width:46px;height:46px;border-radius:50%;border:3px solid var(--tinte);font-family:'Lilita One';font-size:28px;display:flex;align-items:center;justify-content:center;flex:none}
+.stufe input{flex:1;min-width:0;font:700 21px 'Onest',Arial,sans-serif;border:0;border-bottom:2px dashed #C9C3B8;padding:4px 2px;color:var(--tinte);background:transparent}
+.stufe .tx{flex:1;min-width:0;display:flex;flex-direction:column}.stufe .ti{font-size:24px;font-weight:800}.stufe input:not(.ti){font-size:19px;font-weight:600}
+#lautHeute{flex:1;min-height:0;overflow:auto;border:3px solid var(--linie);border-radius:12px;padding:8px 12px;font-size:21px;line-height:1.45}
+#lautKn{display:flex;gap:10px;flex-wrap:wrap}
+#lautKn .ja{background:var(--lagune)}
+#strafEb{inset:0;background:rgba(15,43,40,.92);align-items:center;justify-content:center;flex-direction:column;gap:22px;z-index:38;color:#fff;text-align:center}
+#strafEb .wer{font-family:'Lilita One';font-size:150px;line-height:.9}
+#strafEb .was{font-size:70px;font-weight:800;padding:10px 40px;border-radius:18px;color:var(--tinte)}
+#strafEb .txt{font-size:46px;font-weight:700;max-width:1500px;line-height:1.25}
+#strafEb .H{font-size:32px;opacity:.75}
 </style>
 </head>
 <body>
@@ -300,6 +337,7 @@ html.ampel #miniSchatz{display:flex;align-items:center;gap:10px;background:#fff;
     <div id="fein"><button id="feinMinus">−<small>strenger</small></button><div class="w">Schwelle<b id="feinWert">0</b></div><button id="feinPlus">+<small>lockerer</small></button></div>
     <div class="trenn"></div>
     <button class="kn stopp" id="stoppBtn"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 26V10a3 3 0 0 1 6 0v12"/><path d="M22 20V7a3 3 0 0 1 6 0v13"/><path d="M28 20V9a3 3 0 0 1 6 0v13"/><path d="M34 22v-6a3 3 0 0 1 6 0v12c0 9-6 15-14 15h-2c-6 0-9-3-12-8l-5-9a3 3 0 0 1 5-3l4 5"/></svg>Stopp</button>
+    <button class="kn laut" id="lautBtn"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="12" r="6"/><path d="M14 42V30a10 10 0 0 1 20 0v12"/><path d="M36 8l6-3M38 15h6M36 22l6 3"/></svg>Wer war laut?</button>
     <button class="kn aufr" id="aufrBtn"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M30 6L18 26"/><path d="M12 26h14l4 16H8z"/><path d="M14 34v8M19 34v8M24 34v8"/></svg>Aufräumen</button>
     <button class="kn klein" id="kalBtn"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="17" y="5" width="14" height="24" rx="7"/><path d="M11 23a13 13 0 0 0 26 0"/><path d="M24 36v7M17 43h14"/></svg>Kalibrieren</button>
     <button class="kn klein" id="einBtn"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="6"/><path d="M24 4v6M24 38v6M4 24h6M38 24h6M10 10l4 4M34 34l4 4M38 10l-4 4M14 34l-4 4"/></svg>Mehr</button>
@@ -353,14 +391,15 @@ html.ampel #miniSchatz{display:flex;align-items:center;gap:10px;background:#fff;
       <div class="reihe"><button id="folgeBtn">Modus folgt der Phase</button><button id="gongBtn">Gong bei Phasenwechsel</button></div>
       <div class="reihe"><button id="testBtn">Testmodus ohne Mikrofon</button><button id="micBtn">Mikrofon neu starten</button></div>
       <div class="klein2" id="einMic"></div>
+      <div class="reihe"><select class="micX" data-n="2" hidden aria-label="Zweites Mikrofon"></select><select class="micX" data-n="3" hidden aria-label="Drittes Mikrofon"></select></div>
       <div class="reihe">Ansicht: <span id="ansichtKn"></span></div>
       <h3 style="margin-top:14px">Team-Spiel</h3>
       <div class="reihe"><button id="teamBtn">Team-Spiel</button> Teams <button id="tnMinus">−</button><b id="tnWert" class="T" style="font-size:36px">5</b><button id="tnPlus">+</button> Sterne <button id="tsMinus">−</button><b id="tsWert" class="T" style="font-size:36px">3</b><button id="tsPlus">+</button></div>
       <div class="klein2">Regel gebrochen: auf das Team tippen, ein Stern ist weg. Jedes Team mit mindestens einem Stern gewinnt und bringt einen Edelstein in die Truhe.</div>
       <h3 style="margin-top:14px" class="tasten">Tasten</h3>
-      <div class="klein2 tasten">1 Flüstern · 2 Partnerstimme · 3 Werkraum/Küche · 0 Aus<br>S Stopp · A Aufräumen · Pfeil rechts: nächste Phase · F Vollbild</div>
+      <div class="klein2 tasten">1 Flüstern · 2 Partnerstimme · 3 Werkraum/Küche · 0 Aus<br>S Stopp · L Wer war laut? · A Aufräumen · Pfeil rechts: nächste Phase · F Vollbild</div>
       <h3 style="margin-top:14px">Datenschutz</h3>
-      <div class="klein2">Gemessen wird nur die Lautstärke. Nichts wird aufgenommen, gespeichert oder ins Internet geschickt. Auf diesem Gerät bleiben nur Einstellungen und Edelsteine je Kurs, keine Namen.</div>
+      <div class="klein2">Gemessen wird nur die Lautstärke. Nichts wird aufgenommen, gespeichert oder ins Internet geschickt. Auf diesem Gerät bleiben nur Einstellungen und Edelsteine je Kurs, keine Namen. „Wer war laut?“ speichert nur Tisch und Platz, nur für den heutigen Tag.</div>
     </div>
   </div></div>
   <div class="ebene" id="startEb">
@@ -370,15 +409,34 @@ html.ampel #miniSchatz{display:flex;align-items:center;gap:10px;background:#fff;
     <button class="gross" id="startBtn">Mikrofon starten</button>
     <p id="startFehler"></p>
     <select id="micWahl" hidden aria-label="Mikrofon wählen"></select>
+    <select class="micX" data-n="2" hidden aria-label="Zweites Mikrofon"></select>
+    <select class="micX" data-n="3" hidden aria-label="Drittes Mikrofon"></select>
     <button class="gross zweit" id="startTest">Ohne Mikrofon testen</button>
     <p class="klein2" style="font-size:24px">Nur die Lautstärke wird gemessen. Nichts wird aufgenommen.</p>
   </div>
+  <div id="verwarnt"></div>
+  <div class="ebene" id="lautEb"><div id="lautKarte">
+    <div id="lautLinks">
+      <h2 class="T">Wer war laut?</h2>
+      <div class="klein2">Platz antippen = nächste Stufe. Keine Namen, nur Tisch und Platz. Gilt nur für diese Stunde.</div>
+      <div id="tische"></div>
+      <div id="sitzStell">Tische <button id="tiMinus">−</button><b id="tiWert">8</b><button id="tiPlus">+</button> Plätze je Tisch <button id="plMinus">−</button><b id="plWert">2</b><button id="plPlus">+</button></div>
+    </div>
+    <div id="lautRechts">
+      <h3>Unsere Treppe</h3>
+      <div id="treppe"></div>
+      <h3>Heute <span class="klein2" style="font-size:20px">(für die Klassenmappe)</span></h3>
+      <div id="lautHeute"></div>
+      <div id="lautKn"><button class="kn2" id="lautZurueck">Rückgängig</button><button class="kn2" id="lautNeu">Stunde neu</button><button class="kn2 ja" id="lautZu">Fertig</button></div>
+    </div>
+  </div></div>
+  <div class="ebene" id="strafEb"><div class="wer" id="strafWer"></div><div class="was" id="strafWas"></div><div class="txt" id="strafTxt"></div><div class="txt T" id="strafUhr" style="font-size:120px"></div><div class="H">Tippen zum Weitermachen</div></div>
   <div class="toast" id="toast"></div>
 </div>
 
 <script>
 "use strict";
-const D = {"erstellt": "16.10.2026", "zeitraum": "12.10.–08.11.2026 (Web)", "kurse": [{"id": "dk", "label": "WG Deutschklasse", "fach": "WG", "farbe": "#EE7B22", "wt": 0, "von": "09:45", "bis": "11:15"}, {"id": "wg4a1", "label": "WG 4a Gruppe 1", "fach": "WG", "farbe": "#EE7B22", "wt": 0, "von": "11:30", "bis": "13:00"}, {"id": "wg4b", "label": "WG 4b", "fach": "WG", "farbe": "#EE7B22", "wt": 0, "von": "14:00", "bis": "15:30"}, {"id": "wg6", "label": "WG 6", "fach": "WG", "farbe": "#EE7B22", "wt": 1, "von": "11:30", "bis": "13:00"}, {"id": "wg5", "label": "WG 5", "fach": "WG", "farbe": "#EE7B22", "wt": 1, "von": "13:45", "bis": "15:15"}, {"id": "wg3b", "label": "WG 3b", "fach": "WG", "farbe": "#EE7B22", "wt": 4, "von": "08:00", "bis": "09:30"}, {"id": "wg3a", "label": "WG 3a", "fach": "WG", "farbe": "#EE7B22", "wt": 4, "von": "09:45", "bis": "11:15"}, {"id": "wg4a2", "label": "WG 4a Gruppe 2", "fach": "WG", "farbe": "#EE7B22", "wt": 4, "von": "11:30", "bis": "13:00"}, {"id": "ag", "label": "Challenge AG", "fach": "AG", "farbe": "#2E8C7E", "wt": 1, "von": "15:15", "bis": "16:00"}], "stunden": [{"kurs": "dk", "datum": "2026-10-12", "titel": "Pixel-Profi: Pixelbild aus 1-cm-Quadraten", "start": "09:45", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Lesestart", "min": 7, "modus": "fluester"}, {"t": "Unser Ziel", "min": 4, "modus": "partner"}, {"t": "Vormachen", "min": 6, "modus": "werkraum"}, {"t": "Arbeiten", "min": 53, "modus": "werkraum"}, {"t": "Sichern", "min": 10, "modus": "fluester"}, {"t": "Aufräumen", "min": 5, "modus": "werkraum"}]}, {"kurs": "dk", "datum": "2026-10-19", "titel": "Windlicht Halloween", "start": "09:45", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "dk", "datum": "2026-10-26", "titel": "Halloween-Fensterbilder", "start": "09:45", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg4a1", "datum": "2026-10-12", "titel": "Bügelperlen: Halloween-Kunstwerk", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg4a1", "datum": "2026-10-19", "titel": "Bügelperlen: Halloween-Kunstwerk fertigstellen", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg4a1", "datum": "2026-10-26", "titel": "Leuchtgeister aus Einmachgläsern", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg4b", "datum": "2026-10-12", "titel": "Bügelperlen: Halloween-Kunstwerk", "start": "14:00", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg4b", "datum": "2026-10-19", "titel": "Bügelperlen: Halloween-Kunstwerk fertigstellen", "start": "14:00", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg4b", "datum": "2026-10-26", "titel": "Leuchtgeister aus Einmachgläsern", "start": "14:00", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg6", "datum": "2026-10-13", "titel": "Werkstatt-Quest", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 8, "modus": "partner"}, {"t": "Unser Ziel", "min": 4, "modus": "partner"}, {"t": "Spielen", "min": 53, "modus": "fluester"}, {"t": "Boss: Werkstatt-Burg", "min": 13, "modus": "werkraum"}, {"t": "Sichern", "min": 9, "modus": "fluester"}, {"t": "Abschluss", "min": 3, "modus": "partner"}]}, {"kurs": "wg6", "datum": "2026-10-20", "titel": "Bügelperlen Halloween", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg6", "datum": "2026-10-27", "titel": "Schachtel bauen und beziehen", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg5", "datum": "2026-10-13", "titel": "Werkstatt-Quest", "start": "13:45", "phasen": [{"t": "Ankommen", "min": 8, "modus": "partner"}, {"t": "Unser Ziel", "min": 4, "modus": "partner"}, {"t": "Spielen", "min": 53, "modus": "fluester"}, {"t": "Boss: Werkstatt-Burg", "min": 13, "modus": "werkraum"}, {"t": "Sichern", "min": 9, "modus": "fluester"}, {"t": "Abschluss", "min": 3, "modus": "partner"}]}, {"kurs": "wg5", "datum": "2026-10-20", "titel": "Bügelperlen Halloween", "start": "13:45", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg5", "datum": "2026-10-27", "titel": "Papierschöpfen", "start": "13:45", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg3b", "datum": "2026-10-16", "titel": "Halloween-Fensterbilder", "start": "08:00", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg3b", "datum": "2026-10-23", "titel": "Windlicht Halloween", "start": "08:00", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg3b", "datum": "2026-10-30", "titel": "Bügelperlen: Mein eigenes Motiv", "start": "08:00", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg3a", "datum": "2026-10-16", "titel": "Halloween-Fensterbilder", "start": "09:45", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg3a", "datum": "2026-10-23", "titel": "Windlicht Halloween", "start": "09:45", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg3a", "datum": "2026-10-30", "titel": "Bügelperlen: Mein eigenes Motiv", "start": "09:45", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg4a2", "datum": "2026-10-16", "titel": "Bügelperlen: Halloween-Kunstwerk fertigstellen", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg4a2", "datum": "2026-10-23", "titel": "Leuchtgeister aus Einmachgläsern", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg4a2", "datum": "2026-10-30", "titel": "Punch Needle Tüte/Beutel", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "ag", "datum": "2026-10-13", "titel": "Challenge 01: Papierturm", "start": "15:15", "phasen": [{"t": "Ankommen, Blitz", "min": 5, "modus": "partner"}, {"t": "Problem, Ziel", "min": 5, "modus": "partner"}, {"t": "Planen", "min": 3, "modus": "partner"}, {"t": "Bauen", "min": 20, "modus": "werkraum"}, {"t": "Wertung", "min": 6, "modus": "partner"}, {"t": "Aufräumen, Punkte", "min": 6, "modus": "werkraum"}]}, {"kurs": "ag", "datum": "2026-10-20", "titel": "Challenge 02: Becher ohne Hände", "start": "15:15", "phasen": [{"t": "Ankommen, Blitz", "min": 5, "modus": "partner"}, {"t": "Problem, Ziel", "min": 5, "modus": "partner"}, {"t": "Planen", "min": 3, "modus": "partner"}, {"t": "Bauen", "min": 20, "modus": "werkraum"}, {"t": "Wertung", "min": 6, "modus": "partner"}, {"t": "Aufräumen, Punkte", "min": 6, "modus": "werkraum"}]}, {"kurs": "ag", "datum": "2026-10-27", "titel": "Challenge 03: Geheimcode knacken", "start": "15:15", "phasen": [{"t": "Ankommen, Blitz", "min": 5, "modus": "partner"}, {"t": "Problem, Ziel", "min": 5, "modus": "partner"}, {"t": "Planen", "min": 3, "modus": "partner"}, {"t": "Knacken", "min": 20, "modus": "partner"}, {"t": "Wertung", "min": 6, "modus": "partner"}, {"t": "Aufräumen, Punkte", "min": 6, "modus": "werkraum"}]}], "standard": {"WG": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Lesestart", "min": 7, "modus": "fluester"}, {"t": "Unser Ziel", "min": 4, "modus": "partner"}, {"t": "Vormachen", "min": 6, "modus": "partner"}, {"t": "Arbeiten", "min": 53, "modus": "werkraum"}, {"t": "Sichern", "min": 10, "modus": "fluester"}, {"t": "Aufräumen", "min": 5, "modus": "werkraum"}], "ES": [{"t": "Ankommen und Ziel", "min": 8, "modus": "partner"}, {"t": "Rezept und Jobs", "min": 7, "modus": "partner"}, {"t": "Zubereitung", "min": 35, "modus": "werkraum"}, {"t": "Küche aufräumen", "min": 6, "modus": "werkraum"}, {"t": "Info-Team stellt vor", "min": 6, "modus": "partner"}, {"t": "Sichern", "min": 7, "modus": "fluester"}, {"t": "Essen", "min": 10, "modus": "werkraum"}, {"t": "Glossar", "min": 5, "modus": "fluester"}, {"t": "Aufräumen", "min": 6, "modus": "werkraum"}], "WiK": [{"t": "Lesestart", "min": 8, "modus": "fluester"}, {"t": "Ziel und Video", "min": 7, "modus": "partner"}, {"t": "App", "min": 25, "modus": "fluester"}, {"t": "Sichern", "min": 7, "modus": "partner"}, {"t": "Selbstständig arbeiten", "min": 33, "modus": "fluester"}, {"t": "Sichern", "min": 10, "modus": "fluester"}, {"t": "Pause", "min": 15, "modus": "aus"}, {"t": "Lesestart", "min": 7, "modus": "fluester"}, {"t": "Input", "min": 8, "modus": "partner"}, {"t": "Selbstständig arbeiten", "min": 45, "modus": "fluester"}, {"t": "Verbessern", "min": 15, "modus": "partner"}, {"t": "Sichern", "min": 15, "modus": "fluester"}], "AG": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Die Challenge", "min": 5, "modus": "partner"}, {"t": "Challenge", "min": 25, "modus": "werkraum"}, {"t": "Auswertung", "min": 7, "modus": "partner"}, {"t": "Aufräumen", "min": 3, "modus": "werkraum"}]}};
+const D = {"erstellt": "23.10.2026", "zeitraum": "19.10.–15.11.2026 (Web)", "kurse": [{"id": "dk", "label": "WG Deutschklasse", "fach": "WG", "farbe": "#EE7B22", "wt": 0, "von": "09:45", "bis": "11:15"}, {"id": "wg4a1", "label": "WG 4a Gruppe 1", "fach": "WG", "farbe": "#EE7B22", "wt": 0, "von": "11:30", "bis": "13:00"}, {"id": "wg4b", "label": "WG 4b", "fach": "WG", "farbe": "#EE7B22", "wt": 0, "von": "14:00", "bis": "15:30"}, {"id": "wg6", "label": "WG 6", "fach": "WG", "farbe": "#EE7B22", "wt": 1, "von": "11:30", "bis": "13:00"}, {"id": "wg5", "label": "WG 5", "fach": "WG", "farbe": "#EE7B22", "wt": 1, "von": "13:45", "bis": "15:15"}, {"id": "wg3b", "label": "WG 3b", "fach": "WG", "farbe": "#EE7B22", "wt": 4, "von": "08:00", "bis": "09:30"}, {"id": "wg3a", "label": "WG 3a", "fach": "WG", "farbe": "#EE7B22", "wt": 4, "von": "09:45", "bis": "11:15"}, {"id": "wg4a2", "label": "WG 4a Gruppe 2", "fach": "WG", "farbe": "#EE7B22", "wt": 4, "von": "11:30", "bis": "13:00"}, {"id": "ag", "label": "Challenge AG", "fach": "AG", "farbe": "#2E8C7E", "wt": 1, "von": "15:15", "bis": "16:00"}], "stunden": [{"kurs": "dk", "datum": "2026-10-19", "titel": "Halloween-Fensterbilder", "start": "09:45", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "dk", "datum": "2026-10-26", "titel": "Windlicht Halloween", "start": "09:45", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen + AB", "min": 10, "modus": "partner"}, {"t": "Arbeiten", "min": 45, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "dk", "datum": "2026-11-09", "titel": "Bügelperlen: Mein eigenes Motiv", "start": "09:45", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen + AB", "min": 10, "modus": "partner"}, {"t": "Arbeiten", "min": 45, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg4a1", "datum": "2026-10-19", "titel": "Bügelperlen: Halloween-Kunstwerk fertigstellen", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg4a1", "datum": "2026-10-26", "titel": "Leuchtgeister aus Einmachgläsern", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen + AB", "min": 10, "modus": "partner"}, {"t": "Arbeiten", "min": 45, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg4a1", "datum": "2026-11-09", "titel": "Punch Needle Tüte/Beutel", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen + AB", "min": 10, "modus": "partner"}, {"t": "Arbeiten", "min": 45, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg4b", "datum": "2026-10-19", "titel": "Bügelperlen: Halloween-Kunstwerk fertigstellen", "start": "14:00", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg4b", "datum": "2026-10-26", "titel": "Leuchtgeister aus Einmachgläsern", "start": "14:00", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen + AB", "min": 10, "modus": "partner"}, {"t": "Arbeiten", "min": 45, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg4b", "datum": "2026-11-09", "titel": "Punch Needle Tüte/Beutel", "start": "14:00", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen + AB", "min": 10, "modus": "partner"}, {"t": "Arbeiten", "min": 45, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg6", "datum": "2026-10-20", "titel": "Bügelperlen Halloween", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg6", "datum": "2026-10-27", "titel": "Schachtel bauen und beziehen", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen + AB", "min": 10, "modus": "partner"}, {"t": "Arbeiten", "min": 45, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg6", "datum": "2026-11-10", "titel": "Schachtel bauen und beziehen", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg5", "datum": "2026-10-20", "titel": "Bügelperlen Halloween", "start": "13:45", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg5", "datum": "2026-10-27", "titel": "Papierschöpfen", "start": "13:45", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen + AB", "min": 10, "modus": "partner"}, {"t": "Arbeiten", "min": 45, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg5", "datum": "2026-11-10", "titel": "Linoldruck auf geschöpftem Papier", "start": "13:45", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Lesestart", "min": 7, "modus": "fluester"}, {"t": "Unser Ziel", "min": 3, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "werkraum"}, {"t": "Arbeitsausführung 1", "min": 30, "modus": "werkraum"}, {"t": "Arbeitsausführung 2", "min": 25, "modus": "werkraum"}, {"t": "Sichern", "min": 6, "modus": "fluester"}, {"t": "Aufräumen", "min": 4, "modus": "werkraum"}]}, {"kurs": "wg3b", "datum": "2026-10-23", "titel": "Windlicht Halloween", "start": "08:00", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen + AB", "min": 10, "modus": "partner"}, {"t": "Arbeiten", "min": 45, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg3b", "datum": "2026-10-30", "titel": "Bügelperlen: Mein eigenes Motiv", "start": "08:00", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen + AB", "min": 10, "modus": "partner"}, {"t": "Arbeiten", "min": 45, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg3b", "datum": "2026-11-13", "titel": "Magnete aus Ton", "start": "08:00", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Lesestart", "min": 7, "modus": "fluester"}, {"t": "Unser Ziel", "min": 3, "modus": "partner"}, {"t": "Vormachen", "min": 7, "modus": "werkraum"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Sichern", "min": 10, "modus": "fluester"}, {"t": "Aufräumen", "min": 8, "modus": "werkraum"}]}, {"kurs": "wg3a", "datum": "2026-10-23", "titel": "Windlicht Halloween", "start": "09:45", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen + AB", "min": 10, "modus": "partner"}, {"t": "Arbeiten", "min": 45, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg3a", "datum": "2026-10-30", "titel": "Bügelperlen: Mein eigenes Motiv", "start": "09:45", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen + AB", "min": 10, "modus": "partner"}, {"t": "Arbeiten", "min": 45, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg3a", "datum": "2026-11-13", "titel": "Magnete aus Ton", "start": "09:45", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Lesestart", "min": 7, "modus": "fluester"}, {"t": "Unser Ziel", "min": 3, "modus": "partner"}, {"t": "Vormachen", "min": 7, "modus": "werkraum"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Sichern", "min": 10, "modus": "fluester"}, {"t": "Aufräumen", "min": 8, "modus": "werkraum"}]}, {"kurs": "wg4a2", "datum": "2026-10-23", "titel": "Leuchtgeister aus Einmachgläsern", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen + AB", "min": 10, "modus": "partner"}, {"t": "Arbeiten", "min": 45, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg4a2", "datum": "2026-10-30", "titel": "Punch Needle Tüte/Beutel", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen + AB", "min": 10, "modus": "partner"}, {"t": "Arbeiten", "min": 45, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "wg4a2", "datum": "2026-11-13", "titel": "Punch Needle Tüte/Beutel", "start": "11:30", "phasen": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Ziel", "min": 5, "modus": "partner"}, {"t": "Vormachen", "min": 10, "modus": "partner"}, {"t": "Fragen", "min": 5, "modus": "partner"}, {"t": "Arbeiten", "min": 50, "modus": "werkraum"}, {"t": "Aufräumen", "min": 7, "modus": "werkraum"}, {"t": "Zeigen", "min": 8, "modus": "partner"}]}, {"kurs": "ag", "datum": "2026-10-20", "titel": "Challenge 02: Becher ohne Hände", "start": "15:15", "phasen": [{"t": "Ankommen, Blitz", "min": 5, "modus": "partner"}, {"t": "Problem, Ziel", "min": 5, "modus": "partner"}, {"t": "Planen", "min": 3, "modus": "partner"}, {"t": "Bauen", "min": 20, "modus": "werkraum"}, {"t": "Wertung", "min": 6, "modus": "partner"}, {"t": "Aufräumen, Punkte", "min": 6, "modus": "werkraum"}]}, {"kurs": "ag", "datum": "2026-10-27", "titel": "Challenge 03: Geheimcode knacken", "start": "15:15", "phasen": [{"t": "Ankommen, Blitz", "min": 5, "modus": "partner"}, {"t": "Problem, Ziel", "min": 5, "modus": "partner"}, {"t": "Planen", "min": 3, "modus": "partner"}, {"t": "Knacken", "min": 20, "modus": "partner"}, {"t": "Wertung", "min": 6, "modus": "partner"}, {"t": "Aufräumen, Punkte", "min": 6, "modus": "werkraum"}]}, {"kurs": "ag", "datum": "2026-11-10", "titel": "Challenge 04: Spaghetti-Turm", "start": "15:15", "phasen": [{"t": "Ankommen, Blitz", "min": 5, "modus": "partner"}, {"t": "Problem, Ziel", "min": 5, "modus": "partner"}, {"t": "Planen", "min": 3, "modus": "partner"}, {"t": "Bauen", "min": 20, "modus": "werkraum"}, {"t": "Wertung", "min": 6, "modus": "partner"}, {"t": "Aufräumen, Punkte", "min": 6, "modus": "werkraum"}]}], "standard": {"WG": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Lesestart", "min": 7, "modus": "fluester"}, {"t": "Unser Ziel", "min": 4, "modus": "partner"}, {"t": "Vormachen", "min": 6, "modus": "partner"}, {"t": "Arbeiten", "min": 53, "modus": "werkraum"}, {"t": "Sichern", "min": 10, "modus": "fluester"}, {"t": "Aufräumen", "min": 5, "modus": "werkraum"}], "ES": [{"t": "Ankommen und Ziel", "min": 8, "modus": "partner"}, {"t": "Rezept und Jobs", "min": 7, "modus": "partner"}, {"t": "Zubereitung", "min": 35, "modus": "werkraum"}, {"t": "Küche aufräumen", "min": 6, "modus": "werkraum"}, {"t": "Info-Team stellt vor", "min": 6, "modus": "partner"}, {"t": "Sichern", "min": 7, "modus": "fluester"}, {"t": "Essen", "min": 10, "modus": "werkraum"}, {"t": "Glossar", "min": 5, "modus": "fluester"}, {"t": "Aufräumen", "min": 6, "modus": "werkraum"}], "WiK": [{"t": "Lesestart", "min": 8, "modus": "fluester"}, {"t": "Ziel und Video", "min": 7, "modus": "partner"}, {"t": "App", "min": 25, "modus": "fluester"}, {"t": "Sichern", "min": 7, "modus": "partner"}, {"t": "Selbstständig arbeiten", "min": 33, "modus": "fluester"}, {"t": "Sichern", "min": 10, "modus": "fluester"}, {"t": "Pause", "min": 15, "modus": "aus"}, {"t": "Lesestart", "min": 7, "modus": "fluester"}, {"t": "Input", "min": 8, "modus": "partner"}, {"t": "Selbstständig arbeiten", "min": 45, "modus": "fluester"}, {"t": "Verbessern", "min": 15, "modus": "partner"}, {"t": "Sichern", "min": 15, "modus": "fluester"}], "AG": [{"t": "Ankommen", "min": 5, "modus": "partner"}, {"t": "Die Challenge", "min": 5, "modus": "partner"}, {"t": "Challenge", "min": 25, "modus": "werkraum"}, {"t": "Auswertung", "min": 7, "modus": "partner"}, {"t": "Aufräumen", "min": 3, "modus": "werkraum"}]}};
 // Figuren für das Lärm-Monster (16.10.2026, Wunsch Maxi: mehr Abwechslung).
 // Jede Figur = eigene Szene + vier Zustände: 0 schläft, 1 blinzelt, 2 grummelt, 3 wach. Die Logik (Pegel, Druck, Stufen) ist für alle gleich.
 // Bewusst ohne Stundenplan, Kurse oder Speicher: die Datei lässt sich später in anderen Werkzeugen wiederverwenden.
@@ -867,7 +925,7 @@ function ablaufFuer(id) {
   return {titel: 'Heute keine Stunde laut Plan', quelle: 'frei', start: null, phasen: D.standard[k.fach] || D.standard.WG};
 }
 function kursSetzen(id, vonHand) {
-  S.kurs = id; speichern(); ablauf = ablaufFuer(id); manuell = null; letzterIdx = null;
+  S.kurs = id; speichern(); if (typeof verwarntZeigen === 'function') verwarntZeigen(); ablauf = ablaufFuer(id); manuell = null; letzterIdx = null;
   const k = kursVon(id); document.documentElement.style.setProperty('--fach', k ? k.farbe : '#EE7B22');
   $('#kursBtn').textContent = k ? k.label : 'Kurs';
   $('#stTitel').textContent = ablauf ? ablauf.titel : '';
@@ -891,7 +949,7 @@ function phaseSpringen(r) {
 }
 
 // ---------- Audio: Pegel messen (keine Aufnahme)
-let ac = null, an = null, buf = null, strom = null, micAn = false, stummBis = 0;
+let ac = null, an = null, buf = null, strom = null, micAn = false, stummBis = 0, extra = [];  // extra = weitere Mikrofone (19.10.2026: lautestes zählt)
 async function micStart() {
   // 09.10.2026: zweiter Versuch mit einfachen Vorgaben, Mikrofon-Auswahl und genaue Fehlermeldung je Ursache
   $('#startFehler').textContent = '';
@@ -900,6 +958,7 @@ async function micStart() {
     return false;
   }
   if (strom) strom.getTracks().forEach(t => t.stop());
+  extra.forEach(e => e.s.getTracks().forEach(t => t.stop())); extra = [];
   const wahl = $('#micWahl').value || S.mic || '';
   const geraet = wahl ? {deviceId: {exact: wahl}} : {};
   const versuche = [{audio: Object.assign({echoCancellation: false, noiseSuppression: false, autoGainControl: false}, geraet)}, {audio: wahl ? geraet : true}, {audio: true}];
@@ -927,6 +986,16 @@ async function micStart() {
     const src = ac.createMediaStreamSource(strom); an = ac.createAnalyser(); an.fftSize = 2048; an.smoothingTimeConstant = 0; src.connect(an);
     buf = new Float32Array(an.fftSize); micAn = true; S.test = false;
     const tr = strom.getAudioTracks()[0]; const st = tr && tr.getSettings ? tr.getSettings() : {}; if (st.deviceId) S.mic = st.deviceId;
+    const fehlend = [];
+    for (const n of ['2', '3']) {
+      const id = S['mic' + n]; if (!id || id === S.mic || extra.some(e => e.id === id)) continue;
+      try {
+        const s2 = await navigator.mediaDevices.getUserMedia({audio: {deviceId: {exact: id}, echoCancellation: false, noiseSuppression: false, autoGainControl: false}});
+        const a2 = ac.createAnalyser(); a2.fftSize = 2048; a2.smoothingTimeConstant = 0; ac.createMediaStreamSource(s2).connect(a2);
+        extra.push({id, s: s2, an: a2, buf: new Float32Array(a2.fftSize)});
+      } catch (x) { fehlend.push(n); }
+    }
+    if (fehlend.length) setTimeout(() => toast('Mikrofon ' + fehlend.join(' und ') + ' nicht gefunden – es zählt nur der Rest'), 800);
     speichern(); testPanel(); micListe(); return true;
   } catch (e) {
     $('#startFehler').textContent = 'Ton-Auswertung startet nicht (' + e.name + '). Seite neu laden.'; return false;
@@ -935,15 +1004,19 @@ async function micStart() {
 async function micListe() {
   try {
     const l = (await navigator.mediaDevices.enumerateDevices()).filter(d => d.kind === 'audioinput');
-    const w = $('#micWahl'); if (l.length < 2 || !l[0].label) { w.hidden = true; return; }
+    const w = $('#micWahl'); if (l.length < 2 || !l[0].label) { w.hidden = true; $$('.micX').forEach(x => x.hidden = true); return; }
     w.innerHTML = ''; l.forEach((d, i) => { const o = document.createElement('option'); o.value = d.deviceId; o.textContent = d.label || ('Mikrofon ' + (i + 1)); w.appendChild(o); });
     if (S.mic && l.some(d => d.deviceId === S.mic)) w.value = S.mic; w.hidden = false;
+    $$('.micX').forEach(x => { const n = x.dataset.n; x.innerHTML = '<option value="">Mikrofon ' + n + ': aus</option>';
+      l.forEach((d, i) => { const o = document.createElement('option'); o.value = d.deviceId; o.textContent = 'Mikrofon ' + n + ': ' + (d.label || ('Gerät ' + (i + 1))); x.appendChild(o); });
+      x.value = l.some(d => d.deviceId === S['mic' + n]) ? S['mic' + n] : ''; x.hidden = false; });
   } catch (e) {}
 }
 function messeDb() {
-  if (!micAn || !an) return -90; an.getFloatTimeDomainData(buf); let s = 0;
-  for (let i = 0; i < buf.length; i++) s += buf[i] * buf[i];
-  return 20 * Math.log10(Math.max(Math.sqrt(s / buf.length), 1e-5));
+  if (!micAn || !an) return -90;
+  const rms = (a, b) => { a.getFloatTimeDomainData(b); let s = 0; for (let i = 0; i < b.length; i++) s += b[i] * b[i]; return Math.sqrt(s / b.length); };
+  let m = rms(an, buf); extra.forEach(e => { m = Math.max(m, rms(e.an, e.buf)); });  // lautestes Mikrofon zählt
+  return 20 * Math.log10(Math.max(m, 1e-5));
 }
 function ton(f, t, v, d) { try { ac = ac || new (window.AudioContext || window.webkitAudioContext)(); const o = ac.createOscillator(), g = ac.createGain();
   o.frequency.value = f; o.type = 'sine'; g.gain.setValueAtTime(0.0001, ac.currentTime + t); g.gain.exponentialRampToValueAtTime(v, ac.currentTime + t + .02);
@@ -1176,20 +1249,29 @@ function phaseTakt(sofort) {
 function ebene(sel, an) { $(sel).classList.toggle('zeigen', an); }
 let toastT = null;
 function toast(t) { const el = $('#toast'); el.textContent = t; el.classList.add('zeigen'); clearTimeout(toastT); toastT = setTimeout(() => el.classList.remove('zeigen'), 2600); }
+let kalLauf = false;
 function kalibrieren() {
-  // 09.10.2026: zwei Schritte. 1) Ruhe messen, 2) „so soll es nicht sein“ messen. Die Grenze liegt je Modus in dieser Spanne.
+  // 23.10.2026: Zeit nach der Uhr statt nach Zählern (lief doppelt so schnell), nie zwei Läufe gleichzeitig,
+  // und kein „kalibriert“, wenn kein Ton ankam (Stille) oder zu wenig gemessen wurde.
   if (!micAn && !S.test) { toast('Erst Mikrofon starten'); return; }
+  if (kalLauf) return; kalLauf = true;
   const h2 = $('#kalEb').querySelector('h2'), p = $('#kalEb').querySelector('p');
-  const schritt = (titel, text, fertig) => { kal = {werte: [], n: 5}; h2.textContent = titel; p.textContent = text; $('#kalZahl').textContent = '5'; ebene('#kalEb', true);
-    const iv = setInterval(() => { kal.n--; $('#kalZahl').textContent = Math.max(kal.n, 0);
-      if (kal.n <= 0) { clearInterval(iv); const w = kal.werte.slice(8).sort((x, y) => x - y); kal = null; fertig(w); } }, 1000); };
-  const q = (w, a, d) => w.length ? w[Math.min(w.length - 1, Math.floor(w.length * a))] : d;
+  const abbruch = (titel, text) => { kal = null; kalLauf = false; h2.textContent = titel; $('#kalZahl').textContent = '✗'; p.textContent = text; setTimeout(() => ebene('#kalEb', false), 5000); };
+  const schritt = (titel, text, fertig) => { kal = {werte: []}; const ende = Date.now() + 5000; h2.textContent = titel; p.textContent = text; $('#kalZahl').textContent = '5'; ebene('#kalEb', true);
+    const iv = setInterval(() => { const rest = Math.ceil((ende - Date.now()) / 1000); $('#kalZahl').textContent = Math.max(rest, 0);
+      if (Date.now() >= ende) { clearInterval(iv); const alle = kal ? kal.werte : []; kal = null; fertig(alle.slice(Math.floor(alle.length * .15)).sort((x, y) => x - y)); } }, 200); };
+  const q = (w, a) => w[Math.min(w.length - 1, Math.floor(w.length * a))];
+  const zuWenig = w => w.length < 20;
+  const still = w => !S.test && w.length && w[w.length - 1] < -85;
   schritt('1. Ruhe bitte', 'Alle ganz still. Ich messe, wie leise der Raum ist.', w1 => {
-    S.basis = Math.round(Math.max(-85, Math.min(-20, q(w1, .3, S.basis))) * 10) / 10;
+    if (zuWenig(w1)) { abbruch('Messung zu kurz', 'Der Browser hat zu wenig gemessen. Seite offen lassen und nochmal kalibrieren.'); return; }
+    if (still(w1)) { abbruch('Kein Ton am Mikrofon', 'Es kommt nichts an. Richtiges Mikrofon gewählt? Stummschaltung aus? Dann nochmal kalibrieren.'); return; }
+    S.basis = Math.round(Math.max(-85, Math.min(-20, q(w1, .3))) * 10) / 10;
     schritt('2. Jetzt laut!', 'Alle reden durcheinander, so wie es NICHT sein soll.', w2 => {
-      const laut = q(w2, .5, null);
-      S.laut = laut !== null && laut - S.basis >= 4 ? Math.round(laut * 10) / 10 : null;
-      S.kalibriert = true; S.fein = 0; speichern(); fein(0); druck = 0; ruhe = 0; eMit = Math.pow(10, S.basis / 10);
+      if (zuWenig(w2)) { abbruch('Messung zu kurz', 'Der Browser hat zu wenig gemessen. Seite offen lassen und nochmal kalibrieren.'); return; }
+      const laut = q(w2, .5);
+      S.laut = laut - S.basis >= 4 ? Math.round(laut * 10) / 10 : null;
+      S.kalibriert = true; S.fein = 0; speichern(); fein(0); druck = 0; ruhe = 0; eMit = Math.pow(10, S.basis / 10); kalLauf = false;
       h2.textContent = 'Fertig'; $('#kalZahl').textContent = '✓';
       p.textContent = S.laut === null ? 'Kaum Unterschied gemessen. Mikrofon näher an die Klasse und nochmal kalibrieren.' : 'Gespeichert. Die Grenze liegt jetzt zwischen leise und laut.';
       setTimeout(() => ebene('#kalEb', false), 2200); einMic(); meter(); });
@@ -1199,7 +1281,7 @@ function stoppAn() { stopp = true; ebene('#stoppEb', true); stoppTon(); }
 function stoppAus() { stopp = false; ebene('#stoppEb', false); }
 let aufrIv = null;
 function aufrStart(min) {
-  ebene('#aufrWahl', false); aufr = {ende: Date.now() + min * 60000}; ebene('#aufrEb', true); $('#aufrTxt').textContent = 'Alles an seinen Platz. Dann setzen.';
+  ebene('#aufrWahl', false); aufr = {ende: Date.now() + min * 60000}; ebene('#aufrEb', true); const dienst = aufrDienst(); $('#aufrTxt').textContent = 'Alles an seinen Platz. Dann setzen.' + (dienst.length ? ' Aufräumdienst: ' + dienst.join(', ') + '.' : '');
   $('#aufrFertig').style.display = ''; $('#aufrAbbr').textContent = 'Abbrechen';
   const f = () => { const r = (aufr.ende - Date.now()) / 1000; $('#aufrZeit').textContent = mmss(r);
     if (r <= 0) { clearInterval(aufrIv); $('#aufrTxt').textContent = 'Die Zeit ist um.'; $('#aufrFertig').style.display = 'none'; $('#aufrAbbr').textContent = 'Schließen'; if (S.gong) gong(); } };
@@ -1277,14 +1359,72 @@ $('#testBtn').onclick = () => { S.test = !S.test; speichern(); testPanel(); einK
 $('#micBtn').onclick = async () => { if (await micStart()) toast('Mikrofon läuft'); else toast('Mikrofon nicht erlaubt'); einKurse(); };
 $('#testRegler').oninput = e => { S.testDb = +e.target.value; $('#testWert').textContent = S.testDb + ' dB'; speichern(); };
 $('#micWahl').onchange = () => { S.mic = $('#micWahl').value; speichern(); };
+$$('.micX').forEach(x => x.onchange = () => { S['mic' + x.dataset.n] = x.value; speichern(); micStart(); });
 $('#startBtn').onclick = async () => { if (await micStart()) { ebene('#startEb', false); wach(); if (!S.kalibriert) setTimeout(kalibrieren, 600); } };
 $('#startTest').onclick = () => { S.test = true; speichern(); testPanel(); ebene('#startEb', false); wach(); };
+
+// ---------- Wer war laut? (19.10.2026, Maxi: „die finden es lustig, laut zu sein, die Belohnung ist ihnen egal“)
+// Konsequenz-Treppe je Sitzplatz (Tisch + Platz, keine Namen). Die Anzeige ist bewusst nüchtern (kein Monster, kein Knurren), damit es keine Bühne ist.
+// Stufe 2 startet eine Auszeit mit Uhr, Stufe 3 setzt den Platz auf die Aufräumdienst-Liste (erscheint beim Aufräumen). Alles nur auf diesem Gerät, je Kurs und Tag.
+const TREPPE = [{f: '#F6D86B', t: 'Ermahnung', x: 'Erste Warnung. Ab jetzt leise arbeiten.'},
+  {f: '#F59E42', t: 'Auszeit', x: '3 Minuten an den Nachdenk-Platz. Danach leise weiter.', min: 3},
+  {f: '#E2553F', t: 'Aufräumdienst', x: 'Du räumst am Ende der Stunde mit auf. Eintrag in die Klassenmappe.'},
+  {f: '#7A1E14', t: 'Eltern', x: 'Mitteilung an die Eltern.'}];
+const trStufe = i => Object.assign({}, TREPPE[i], (S.treppe || [])[i] || {});
+function strk() { const id = S.kurs || 'frei', heute = iso(jetzt()); S.straf = S.straf || {}; S.sitz = S.sitz || {};
+  let k = S.straf[id]; if (!k || k.datum !== heute) k = S.straf[id] = {datum: heute, st: {}, verlauf: [], auszeit: {}};
+  Object.keys(S.straf).forEach(x => { if (S.straf[x].datum !== heute) delete S.straf[x]; });   // alte Tage nicht aufheben
+  const z = S.sitz[id] = S.sitz[id] || {t: 8, p: 2}; return {k, z}; }
+const platzName = s => { const [t, p] = s.split('-'); return `Tisch ${t} · Platz ${p}`; };
+const platzKurz = s => { const [t, p] = s.split('-'); return `T${t}·P${p}`; };
+function lautZeigen() { const {k, z} = strk();
+  $('#tiWert').textContent = z.t; $('#plWert').textContent = z.p;
+  const sp = z.t > 12 ? 4 : z.t > 6 ? 3 : 2; $('#tische').style.gridTemplateColumns = `repeat(${sp},1fr)`;
+  const hoch = z.t > 12 ? 70 : z.t > 8 ? 84 : 96;
+  $('#tische').innerHTML = Array.from({length: z.t}, (_, t) => `<div class="tisch"><div class="tn">Tisch ${t + 1}</div><div class="pl">${Array.from({length: z.p}, (_, p) => { const s = (t + 1) + '-' + (p + 1), st = k.st[s] || 0;
+    return `<button class="platz st${st}" data-s="${s}" style="height:${hoch}px">${p + 1}${st ? `<small>${esc(trStufe(st - 1).t)}</small>` : ''}</button>`; }).join('')}</div></div>`).join('');
+  $$('#tische .platz').forEach(b => b.onclick = () => strafe(b.dataset.s));
+  $('#treppe').innerHTML = TREPPE.map((_, i) => { const s = trStufe(i); return `<div class="stufe"><div class="nr" style="background:${s.f};color:${i > 1 ? '#fff' : 'inherit'}">${i + 1}</div><div class="tx"><input class="ti" data-i="${i}" data-f="t" value="${esc(s.t)}" maxlength="20"><input data-i="${i}" data-f="x" value="${esc(s.x)}" maxlength="90"></div></div>`; }).join('');
+  $$('#treppe input').forEach(x => x.onchange = () => { S.treppe = S.treppe || []; const i = +x.dataset.i; S.treppe[i] = S.treppe[i] || {}; S.treppe[i][x.dataset.f] = x.value.trim() || TREPPE[i][x.dataset.f]; speichern(); lautZeigen(); verwarntZeigen(); });
+  $('#lautHeute').innerHTML = k.verlauf.length ? k.verlauf.map(v => `${v.uhr} · ${platzName(v.s)} · Stufe ${v.st}: ${esc(trStufe(v.st - 1).t)}`).join('<br>') : '<span style="color:var(--grau)">Noch niemand. Gut so.</span>';
+}
+function strafe(s) { const {k} = strk(), st = Math.min(TREPPE.length, (k.st[s] || 0) + 1), d = jetzt();
+  if ((k.st[s] || 0) >= TREPPE.length) { toast(platzName(s) + ': schon auf der letzten Stufe'); return; }
+  k.st[s] = st; k.verlauf.push({s, st, uhr: d.getHours() + ':' + pad(d.getMinutes())});
+  const S2 = trStufe(st - 1); if (S2.min) k.auszeit[s] = Date.now() + S2.min * 60000;
+  speichern(); lautZeigen(); verwarntZeigen(); ebene('#lautEb', false); strafZeigen(s, st);
+}
+let strafT = null, strafIv = null;
+function strafZeigen(s, st) { const S2 = trStufe(st - 1);
+  $('#strafWer').textContent = platzName(s); $('#strafWas').textContent = `Stufe ${st}: ${S2.t}`; $('#strafWas').style.background = S2.f; $('#strafWas').style.color = st > 2 ? '#fff' : 'var(--tinte)';
+  $('#strafTxt').textContent = S2.x; ebene('#strafEb', true); ton(196, 0, .25, .7);
+  const {k} = strk(); const f = () => { const r = k.auszeit[s] ? (k.auszeit[s] - Date.now()) / 1000 : 0; $('#strafUhr').textContent = S2.min && r > 0 ? mmss(r) : ''; };
+  f(); clearInterval(strafIv); strafIv = setInterval(f, 250); clearTimeout(strafT); strafT = setTimeout(strafZu, S2.min ? 8000 : 5000);
+}
+function strafZu() { clearTimeout(strafT); clearInterval(strafIv); ebene('#strafEb', false); }
+function verwarntZeigen() { const {k} = strk(), n = Date.now();
+  const sitze = Object.keys(k.st).filter(s => k.st[s] > 0).sort((a, b) => k.st[b] - k.st[a]);
+  $('#verwarnt').innerHTML = sitze.map(s => { const st = k.st[s], r = k.auszeit[s] ? (k.auszeit[s] - n) / 1000 : 0;
+    return `<div class="vw">${platzKurz(s)} ${Array.from({length: st}, (_, i) => `<i style="background:${trStufe(i).f}"></i>`).join('')}${r > 0 ? `<b>${mmss(r)}</b>` : ''}</div>`; }).join('');
+}
+function aufrDienst() { const {k} = strk(); return Object.keys(k.st).filter(s => k.st[s] >= 3).map(platzKurz); }
+function lautZurueck() { const {k} = strk(); const v = k.verlauf.pop(); if (!v) { toast('Nichts zum Zurücknehmen'); return; }
+  k.st[v.s] = v.st - 1; if (!k.st[v.s]) delete k.st[v.s]; if (v.st === 2) delete k.auszeit[v.s]; speichern(); lautZeigen(); verwarntZeigen(); toast(platzName(v.s) + ': Stufe zurückgenommen'); }
+const sitzStell = (f, r, lo, hi) => { const {z} = strk(); z[f] = Math.max(lo, Math.min(hi, z[f] + r)); speichern(); lautZeigen(); };
+$('#lautBtn').onclick = () => { lautZeigen(); ebene('#lautEb', true); };
+$('#lautZu').onclick = () => ebene('#lautEb', false); $('#lautZurueck').onclick = lautZurueck;
+$('#lautNeu').onclick = () => { const b = $('#lautNeu'); if (!b.classList.contains('sicher')) { b.classList.add('sicher'); b.textContent = 'Sicher?'; setTimeout(() => { b.classList.remove('sicher'); b.textContent = 'Stunde neu'; }, 3000); return; }
+  b.classList.remove('sicher'); b.textContent = 'Stunde neu'; const id = S.kurs || 'frei'; delete S.straf[id]; speichern(); lautZeigen(); verwarntZeigen(); toast('Alle Stufen auf 0'); };
+$('#strafEb').onclick = strafZu;
+$('#tiMinus').onclick = () => sitzStell('t', -1, 1, 16); $('#tiPlus').onclick = () => sitzStell('t', 1, 1, 16);
+$('#plMinus').onclick = () => sitzStell('p', -1, 1, 4); $('#plPlus').onclick = () => sitzStell('p', 1, 1, 4);
+setInterval(verwarntZeigen, 1000);
 document.addEventListener('keydown', e => {
   if (e.target.tagName === 'INPUT') return; const k = e.key.toLowerCase();
   if (stopp) { stoppAus(); return; }
   if (k === '1') modusSetzen('fluester'); else if (k === '2') modusSetzen('partner'); else if (k === '3') modusSetzen('werkraum'); else if (k === '0') modusSetzen('aus');
   else if (k === 's') stoppAn(); else if (k === 'a' && !aufr) ebene('#aufrWahl', true); else if (k === 'arrowright') phaseSpringen(1); else if (k === 'arrowleft') phaseSpringen(-1);
-  else if (k === 'f') $('#vollBtn').onclick(); else if (k === 'escape') { ['#einEb', '#aufrWahl', '#vollEb', '#tAusEb', '#belEb'].forEach(x => ebene(x, false)); }
+  else if (k === 'l') $('#lautBtn').onclick(); else if (k === 'f') $('#vollBtn').onclick(); else if (k === 'escape') { ['#einEb', '#aufrWahl', '#vollEb', '#tAusEb', '#belEb', '#lautEb', '#strafEb'].forEach(x => ebene(x, false)); }
 });
 async function wach() { try { if (navigator.wakeLock) await navigator.wakeLock.request('screen'); } catch (e) {} }
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') wach(); });
@@ -1305,7 +1445,7 @@ const a0 = autoKurs(); letzteAuto = a0; kursSetzen(a0 || S.kurs || (D.kurse[0] &
 ansichtSetzen(); modusSetzen(S.modus, true); fein(0); testPanel(); zeichneMonster(); uhr(); phaseTakt();
 if (!S.test || new URLSearchParams(location.search).get('start') !== '0') ebene('#startEb', true);
 setInterval(takt, 100); setInterval(() => { uhr(); phaseTakt(); }, 500); setInterval(minutenTakt, 30000);
-window.LM = {S, FIGUREN, TOENE, tonWahl, figurSetzen, belOeffnen, belTipp, truheVoll, radDrehen, brummeln, teamFoul, teamZurueck, teamAuswerten, teamsZeigen, ansichtSetzen, knurren, setDruck: x => { druck = x; }, stufe: () => stufe, steinDazu, stoppAn, aufrStart, kalibrieren, phaseSpringen, kursSetzen, schliesseStart: () => ebene('#startEb', false), ebene};
+window.LM = {messeDb, extraAdd: e => extra.push(e), S, FIGUREN, TOENE, tonWahl, figurSetzen, belOeffnen, belTipp, truheVoll, radDrehen, brummeln, teamFoul, teamZurueck, teamAuswerten, teamsZeigen, ansichtSetzen, knurren, setDruck: x => { druck = x; }, stufe: () => stufe, steinDazu, stoppAn, aufrStart, kalibrieren, phaseSpringen, kursSetzen, schliesseStart: () => ebene('#startEb', false), ebene};
 </script>
 </body>
 </html>
